@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-import dateutil
+import dateutil, dateutil.parser
 import logging
 
 log = logging.getLogger(__name__)
