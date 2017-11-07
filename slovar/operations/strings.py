@@ -1,6 +1,7 @@
 import re
 from datetime import datetime
-import dateutil, dateutil.parser
+import dateutil
+from dateutil.parser import parse as dt_parse
 import logging
 
 log = logging.getLogger(__name__)
@@ -49,7 +50,7 @@ def str2dt(strdt, _raise=False):
         return datetime.utcnow()+dt
 
     try:
-        return dateutil.parser.parse(strdt)
+        return dt_parse(strdt)
     except ValueError as e:
         msg = 'Datetime string `%s` not recognized as datetime. Did you miss +- signs for relative dates?' % strdt
         if _raise:
